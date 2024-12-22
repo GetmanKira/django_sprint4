@@ -1,3 +1,6 @@
+"""модельная структура приложения
+определяет классы для категорий, местоположений, постов
+комментариев"""
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models import Count
