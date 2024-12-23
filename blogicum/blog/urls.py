@@ -1,38 +1,41 @@
+""" содержит код для настройки URL-адресов в Django. 
+Он определяет маршруты для различных представлений (views),
+связанных с управлением контентом блога."""
 from django.urls import path
 
 from . import views
 
-app_name = 'blog'
+app_name = 'blog'#пространство имен для URL адресов
 
 urlpatterns = [
     path(
         '',
-        views.IndexListView.as_view(),
+        views.IndexListView.as_view(),#главная страница
         name='index'
     ),
     path(
         'posts/<int:post_id>/',
-        views.PostDetailView.as_view(),
+        views.PostDetailView.as_view(),#конкретный пост
         name='post_detail'
     ),
     path(
         'posts/<int:post_id>/edit/',
-        views.PostUpdateView.as_view(),
+        views.PostUpdateView.as_view(),#редактирование поста
         name='edit_post'
     ),
     path(
         'posts/<int:post_id>/delete/',
-        views.PostDeleteView.as_view(),
+        views.PostDeleteView.as_view(),#удаление поста
         name='delete_post'
     ),
     path(
         'posts/<int:post_id>/comment/',
-        views.CommentCreateView.as_view(),
+        views.CommentCreateView.as_view(),#добавление комментария к публикации
         name='add_comment'
     ),
     path(
         'posts/create/',
-        views.CreatePostView.as_view(),
+        views.CreatePostView.as_view(),#создание нового поста
         name='create_post'
     ),
     path(
